@@ -1,0 +1,360 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "Sistema de Matriculas - Funciones Lambda This template is partially managed by Amazon.Lambda.Annotations (v1.8.0.0).",
+  "Resources": {
+    "ListarCursosFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::ListarCursos",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "GetCursos": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/cursos",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "ObtenerCursoFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::ObtenerCurso",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "GetCurso": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/cursos/{id}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "CrearCursoFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::CrearCurso",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "PostCurso": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/cursos",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "EliminarCursoFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::EliminarCurso",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "DeleteCurso": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/cursos/{id}",
+              "Method": "DELETE"
+            }
+          }
+        }
+      }
+    },
+    "ListarAlumnosFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::ListarAlumnos",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "GetAlumnos": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/alumnos",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "ObtenerAlumnoFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::ObtenerAlumno",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "GetAlumno": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/alumnos/{id}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "ObtenerAlumnoPorCodigoFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::ObtenerAlumnoPorCodigo",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "GetAlumnoCodigo": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/alumnos/codigo/{codigo}",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "CrearAlumnoFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::CrearAlumno",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "PostAlumno": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/alumnos",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "EliminarAlumnoFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::EliminarAlumno",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "DeleteAlumno": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/alumnos/{id}",
+              "Method": "DELETE"
+            }
+          }
+        }
+      }
+    },
+    "ListarMatriculasFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::ListarMatriculas",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "GetMatriculas": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/matriculas",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "CrearMatriculaFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::CrearMatricula",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "PostMatricula": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/matriculas",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "BajaMatriculaFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::BajaMatricula",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "DeleteMatricula": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/matriculas/{id}",
+              "Method": "DELETE"
+            }
+          }
+        }
+      }
+    },
+    "ListarCiclosFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::ListarCiclos",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "GetCiclos": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/ciclos",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "ObtenerCicloActivoFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::ObtenerCicloActivo",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "GetCicloActivo": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/ciclos/activo",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "CrearCicloFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "SistemaMatriculas.Lambda::SistemaMatriculas.Lambda.Functions::CrearCiclo",
+        "Runtime": "dotnet8",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole",
+          "SecretsManagerReadWrite"
+        ],
+        "Events": {
+          "PostCiclo": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/ciclos",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "ApiURL": {
+      "Description": "URL de la API generada",
+      "Value": {
+        "Fn::Sub": "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod"
+      }
+    }
+  }
+}

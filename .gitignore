@@ -1,0 +1,16 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+
+## Archivos de Visual Studio
+.vs/
+
+## Configuración con datos sensibles
+appsettings.Development.json
+aws-lambda-tools-defaults.json
+
+## Otros
+*.log
+.env
